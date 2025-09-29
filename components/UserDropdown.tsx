@@ -1,7 +1,9 @@
 'use client'
 
+import { LogOut } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
+import NavItems from '@/components/NavItems'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
@@ -12,8 +14,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { LogOut } from 'lucide-react'
-import NavItems from './NavItems'
 
 const UserDropdown = () => {
   const router = useRouter()
