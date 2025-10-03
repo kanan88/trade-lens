@@ -32,4 +32,5 @@ const useTradingViewWidget = (
 
   return containerRef
 }
+
 export default useTradingViewWidget
