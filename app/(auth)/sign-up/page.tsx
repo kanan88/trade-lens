@@ -1,8 +1,11 @@
 'use client'
 
-import InputField from '@/components/forms/InputField'
-import { Button } from '@/components/ui/button'
 import { useForm } from 'react-hook-form'
+
+import InputField from '@/components/forms/InputField'
+import SelectField from '@/components/forms/SelectField'
+import { Button } from '@/components/ui/button'
+import { INVESTMENT_GOALS } from '@/lib/constants'
 
 const SignUp = () => {
   const {
@@ -63,6 +66,18 @@ const SignUp = () => {
           error={errors.password}
           validation={{ required: 'Password is required', minLength: 8 }}
           disabled={isSubmitting}
+        />
+
+        {/* Country */}
+
+        <SelectField
+          name="investmentGoals"
+          label="Investment Goals"
+          placeholder="Select your investment goals"
+          options={INVESTMENT_GOALS}
+          control={control}
+          error={errors.investmentGoals}
+          required
         />
 
         <Button
