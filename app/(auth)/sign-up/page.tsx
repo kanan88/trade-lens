@@ -2,10 +2,15 @@
 
 import { useForm } from 'react-hook-form'
 
+import CountrySelectField from '@/components/forms/CountrySelectField'
 import InputField from '@/components/forms/InputField'
 import SelectField from '@/components/forms/SelectField'
 import { Button } from '@/components/ui/button'
-import { INVESTMENT_GOALS } from '@/lib/constants'
+import {
+  INVESTMENT_GOALS,
+  PREFERRED_INDUSTRIES,
+  RISK_TOLERANCE_OPTIONS
+} from '@/lib/constants'
 
 const SignUp = () => {
   const {
@@ -48,6 +53,7 @@ const SignUp = () => {
           validation={{ required: 'Full name is required', minLength: 2 }}
           disabled={isSubmitting}
         />
+
         <InputField
           name="email"
           label="Email"
@@ -57,6 +63,7 @@ const SignUp = () => {
           validation={{ required: 'Email is required', pattern: /^\S+@\S+$/i }}
           disabled={isSubmitting}
         />
+
         <InputField
           name="password"
           label="Password"
@@ -68,7 +75,13 @@ const SignUp = () => {
           disabled={isSubmitting}
         />
 
-        {/* Country */}
+        <CountrySelectField
+          name="country"
+          label="Country"
+          control={control}
+          error={errors.country}
+          required
+        />
 
         <SelectField
           name="investmentGoals"
@@ -77,6 +90,26 @@ const SignUp = () => {
           options={INVESTMENT_GOALS}
           control={control}
           error={errors.investmentGoals}
+          required
+        />
+
+        <SelectField
+          name="riskTolerance"
+          label="Risk Tolerance"
+          placeholder="Select your risk tolerance"
+          options={RISK_TOLERANCE_OPTIONS}
+          control={control}
+          error={errors.riskTolerance}
+          required
+        />
+
+        <SelectField
+          name="preferredIndustry"
+          label="Preferred Industry"
+          placeholder="Select your preferred industry"
+          options={PREFERRED_INDUSTRIES}
+          control={control}
+          error={errors.preferredIndustry}
           required
         />
 
